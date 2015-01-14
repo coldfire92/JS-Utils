@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Jasmine Spec Runner</title>
+        <link rel="stylesheet" href="lib/jasmine-2.1.3/jasmine.css">
+    </head>
+    <body>
+
+        <!-- RequireJS -->
+        <script type="text/javascript" src="lib/jasmine-2.1.3/jasmine.js"></script>
+        <script type="text/javascript" src="lib/jasmine-2.1.3/jasmine-html.js"></script>
+        <script type="text/javascript" src="lib/jasmine-2.1.3/boot.js"></script>
+
+        <!-- Debugger -->
+        <script src="../bower_components/mp-debugger/dist/debugger.js"></script> 
+        <script src="../app/scripts/Rwd/deb.Rwd.js"></script>  
+
+        <!-- RequireJS -->
+        <script src="../bower_components/requirejs/require.js"></script>               
+        
+        <!-- Underscore -->
+        <script src="bower_components/underscore/underscore.js"></script>        
+
+        <!-- include source files here... -->
+        <script src="../app/scripts/Hooks.js"></script>        
+        <script src="../app/scripts/Rwd/Rwd.js"></script>  
+
+        <!-- include spec files here... -->
+        <script src="spec/Hooks.js"></script>
+        <script src="spec/Rwd.js"></script>
+
+        <script>
+
+        /* global DEBUGGER */
+
+         'use strict';
+
+        if(typeof DEBUGGER == 'undefined') DEBUGGER = {call: function(){return true;},addMethod: function(){}};
+ 
+        </script>
+    </body>
+</html>
