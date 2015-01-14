@@ -33,26 +33,109 @@
 
       </ul>
     </div>
+    
+     <!-- Debugger -->
+      <script src="../bower_components/mp-debugger/dist/debugger.js"></script> 
+      <script src="scripts/Rwd/deb.Rwd.js"></script>  
+
+      <!-- RequireJS -->
+      <script src="../bower_components/requirejs/require.js"></script>               
+      
+      <!-- Underscore -->
+      <script src="../test/bower_components/underscore/underscore.js"></script>        
+
+      <!-- include source files here... -->
+      <script src="scripts/Hooks.js"></script>        
+      <script src="scripts/Rwd/Rwd.js"></script> 
+
+      <script>
+
+         'use strict';
+
+          function onMobileActive(){
+
+            console.log('onMobileActive');  
+
+          }
+
+          function onMobileActiveInit(){
+
+            console.log('onMobileActiveInit');  
+
+          }
+
+          function onMobileDeactive(){
+
+            console.log('onMobileDeactive');  
+
+          }
 
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+          // tablets
+          
+          function onTabletActiveInit(){
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+            console.log('onTabletActiveInit');  
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+          } 
+          
+          function onTabletDeactive(){
+
+            console.log('onTabletDeactive');  
+
+          }
+
+          function onTabletActive() {
+
+            console.log('onTabletActive');  
+
+
+
+          };
+
+          //screens
+          
+          function onScreenActiveInit() {
+
+            console.log('onScreenActiveInit');  
+
+
+          };
+
+          function onScreenActive() {
+
+            console.log('onScreenActive');  
+
+          };
+
+
+          function onScreenDeactive() {
+
+            console.log('onScreenDeactive');  
+
+          };
+
+
+          require(['Rwd'], function(RwdModule){
+
+
+                RwdModule.addHook('addOnMobileDeactive',onMobileDeactive);
+                RwdModule.addHook('addOnMobileActive', onMobileActive);
+                RwdModule.addHook('addOnMobileActiveInit', onMobileActiveInit);
+
+                RwdModule.addHook('addOnTabletDeactive' , onTabletDeactive);
+                RwdModule.addHook('addOnTabletActive', onTabletActive);
+                RwdModule.addHook('addOnTabletActiveInit', onTabletActiveInit);
+
+                RwdModule.addHook('addOnScreenDeactive', onScreenDeactive);
+                RwdModule.addHook('addOnScreenActive', onScreenActive);
+                RwdModule.addHook('addOnScreenActiveInit', onScreenActiveInit);
+              
+                RwdModule.init();
+                
+          });
+
+      </script>
+
 </body>
 </html>

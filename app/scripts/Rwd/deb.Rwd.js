@@ -1,5 +1,6 @@
 /* global DEBUGGER*/		
 DEBUGGER.addMethod('checkConfigObj', function(Vars){
+		
 		'use strict';
 
 
