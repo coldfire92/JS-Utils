@@ -26,12 +26,12 @@
         <script src="../app/scripts/Hooks.js"></script>        
         <script src="../app/scripts/Rwd/Rwd.js"></script>   
         <script src="../app/scripts/Storage/Storage.js"></script>  
+        <script src="../app/scripts/DisableScroll.js"></script>  
 
         <!-- include spec files here... -->
         <script src="spec/Hooks.js"></script>
         <script src="spec/Rwd.js"></script>
         <script src="spec/Storage.js"></script>
-
         <script>
 
         /* global DEBUGGER */
@@ -39,7 +39,19 @@
          'use strict';
 
         if(typeof DEBUGGER === 'undefined') DEBUGGER = {call: function(){return true;},addMethod: function(){}};
- 
+        
+        require(['DisableScroll'], function(scroll){
+
+            scroll.disable();
+
+            setTimeout(function(){
+
+                scroll.enable();  
+                 
+            },600)
+
+        });
+
         </script>
     </body>
 </html>
