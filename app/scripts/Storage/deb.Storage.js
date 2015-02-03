@@ -15,8 +15,8 @@ DEBUGGER.addMethod('setObjectTest', function(Vars){
 		return false;
 	}
 
-	if(typeof Vars.object !== 'object'){
-		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is not a object','error');
+	if(typeof Vars.object === 'undefined'){
+		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is not defined','error');
 		return false;
 	}
 

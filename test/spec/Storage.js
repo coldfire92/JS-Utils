@@ -38,7 +38,6 @@
       it('should not except bad object', function() {
       	
       		Storage.add();
-      		Storage.add('key', 'object');
       		Storage.add('', {});
 
       		console.log(Storage.getAll());

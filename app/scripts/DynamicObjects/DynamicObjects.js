@@ -5,7 +5,7 @@
  * 	- get key before, after
  * 
  */
-define('dynamicObject',[], function(){
+define('DynamicObject',[], function(){
 	
 	'use strict';
 

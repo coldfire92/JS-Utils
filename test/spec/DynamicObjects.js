@@ -17,7 +17,7 @@
       it('should load the AMD DynamicObject module', function(done) {
           
           
-          require(['dynamicObject'], function (Module) {
+          require(['DynamicObject'], function (Module) {
            
              DynamicObject = new Module();
 
@@ -38,7 +38,6 @@
       it('should not except bad object', function() {
       	
       		DynamicObject.add();
-      		DynamicObject.add('key', 'object');
       		DynamicObject.add('', {});
 
       		console.log(DynamicObject.getAll());
@@ -64,7 +63,7 @@
 
       });
 
-      it('should show warn when deleting not existing object', function() {
+      it('shoulld show warn when deleting not existing object', function() {
           
           expect(DynamicObject.getAll()).toEqual({});
 
@@ -72,7 +71,7 @@
 
       });
 
-      it('Shoud return false when first object', function() {
+      it('Should return false when first object', function() {
         
           DynamicObject.add('key', obj);
 
@@ -82,7 +81,7 @@
 
       });
 
-      it('Shoud return false when last object', function() {
+      it('Should return false when last object', function() {
         
           DynamicObject.add('key', obj);
 
@@ -91,8 +90,6 @@
           expect(DynamicObject.getKeyAfter('key2')).toBeFalsy();
 
       });
-
-
 
 	});
 

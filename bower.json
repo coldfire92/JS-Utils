@@ -2,6 +2,7 @@
   "name": "js-utils",
   "private": false,
   "dependencies": {
-    "mp-debugger": "*"
+    "mp-debugger": "*",
+    "requirejs" : "*"
   }
 }
