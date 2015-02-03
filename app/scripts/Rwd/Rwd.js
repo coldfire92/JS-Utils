@@ -1,4 +1,4 @@
-/* global define*/
+/* global define, DEBUGGER */
 
 define('Rwd',['Hooks'], function (Hooks) {
 
@@ -59,7 +59,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 		function addConfig(ConfigObj){
 			
 
-			if(DEBUGGER.call('checkConfigObj', {Config: ConfigObj}, "Rwd")) {
+			if(DEBUGGER.run('checkConfigObj', {Config: ConfigObj}, "Rwd")) {
 
 				Config = ConfigObj;
 				 		
@@ -98,7 +98,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		function screen(onInit){
 
-			DEBUGGER.call('info','Screen View','RWD')
+			DEBUGGER.run('info','Screen View','RWD')
 
 			isMobile = false;
 			isTablet = false;
@@ -117,7 +117,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		function tablet(onInit){
 
-			DEBUGGER.call('info','Tablet View','RWD')
+			DEBUGGER.run('info','Tablet View','RWD')
 
 			isMobile = false;
 			isTablet = true;
@@ -137,7 +137,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		function mobile (onInit) {
 
-			DEBUGGER.call('info','Mobile View','RWD');
+			DEBUGGER.run('info','Mobile View','RWD');
 
 			isMobile = true;
 			isTablet = false;
@@ -212,9 +212,6 @@ define('Rwd',['Hooks'], function (Hooks) {
 			initTabletView();
 			initScreenView();	
 
-
-			return true;
-
 		}
 
 
@@ -222,16 +219,16 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 			onInit = onInit || true; 
 
-			if(acceptHooks.indexOf(type) == -1){
+			if(acceptHooks.indexOf(type) === -1){
 
-				DEBUGGER.call('warn', 'There isnt hook ' + type + ' on RWD mobile','RWD');
+				DEBUGGER.run('warn', 'There isnt hook ' + type + ' on RWD mobile','RWD');
 
 				return false;
 			}
 
 			if(typeof fn != "function"){
 
-				DEBUGGER.call('error', 'Youd dont proper funciton to addHook method','RWD');
+				DEBUGGER.run('error', 'Youd dont proper funciton to addHook method','RWD');
 
 				return false;	
 

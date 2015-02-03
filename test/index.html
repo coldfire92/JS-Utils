@@ -13,7 +13,8 @@
 
         <!-- Debugger -->
         <script src="../bower_components/mp-debugger/dist/debugger.js"></script> 
-        <script src="../app/scripts/Rwd/deb.Rwd.js"></script>  
+        <script src="../app/scripts/Rwd/deb.Rwd.js"></script> 
+        <script src="../app/scripts/Storage/deb.Storage.js"></script>   
 
         <!-- RequireJS -->
         <script src="../bower_components/requirejs/require.js"></script>               
@@ -23,11 +24,13 @@
 
         <!-- include source files here... -->
         <script src="../app/scripts/Hooks.js"></script>        
-        <script src="../app/scripts/Rwd/Rwd.js"></script>  
+        <script src="../app/scripts/Rwd/Rwd.js"></script>   
+        <script src="../app/scripts/Storage/Storage.js"></script>  
 
         <!-- include spec files here... -->
         <script src="spec/Hooks.js"></script>
         <script src="spec/Rwd.js"></script>
+        <script src="spec/Storage.js"></script>
 
         <script>
 
@@ -35,7 +38,7 @@
 
          'use strict';
 
-        if(typeof DEBUGGER == 'undefined') DEBUGGER = {call: function(){return true;},addMethod: function(){}};
+        if(typeof DEBUGGER === 'undefined') DEBUGGER = {call: function(){return true;},addMethod: function(){}};
  
         </script>
     </body>
