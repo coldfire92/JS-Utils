@@ -11,19 +11,19 @@ DEBUGGER.addMethod('setObjectTest', function(Vars){
 
 	if(typeof Vars.objects[Vars.key] !== 'undefined'){
 
-		this.print('Storage', 'Try to set \''+Vars.key+'\' object which is previous defined','warn');
+		this.print(Vars.moduleNameCall, 'Try to set \''+Vars.key+'\' object which is previous defined','warn');
 		return false;
 	}
 
 	if(typeof Vars.object !== 'object'){
-		this.print('Storage', '\''+Vars.key+'\' is not a object','error');
+		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is not a object','error');
 		return false;
 	}
 
 	var isString =  Vars.key instanceof String || typeof Vars.key === "string";
 
 	if(!isString ||  Vars.key == ''){
-		this.print('Storage', '\''+Vars.key+'\' is bad key','error');
+		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is bad key','error');
 		return false;
 	}
 	
@@ -43,7 +43,7 @@ DEBUGGER.addMethod('getObjectTest', function(Vars){
 
 	if(typeof Vars.objects[Vars.key] === 'undefined'){
 
-		this.print('Main:objects', 'Try to get \''+Vars.key+'\' config record which not exist','warn');
+		this.print(Vars.moduleNameCall, 'Try to get \''+Vars.key+'\' config record which not exist','warn');
 		return false;
 	}
 
@@ -64,7 +64,7 @@ DEBUGGER.addMethod('removeObjectTest', function(Vars){
 
 	if(typeof Vars.objects[Vars.key] === 'undefined'){
 
-		this.print('Main:objects', 'Try to remove \''+Vars.key+'\' config record which not exist','warn');
+		this.print(Vars.moduleNameCall, 'Try to remove \''+Vars.key+'\' config record which not exist','warn');
 		return false;
 	}
 
