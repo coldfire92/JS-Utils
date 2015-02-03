@@ -70,6 +70,8 @@ define('Storage',[], function(){
 
 			delete objects[key];
 
+		} else {
+			return false;
 		}
 
 	};

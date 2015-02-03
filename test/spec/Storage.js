@@ -11,9 +11,7 @@
       			string : 'Test'
       		};
       	
-
 	describe('Storage', function(){
-
 
 
       it('should load the AMD Storage module', function(done) {
@@ -36,7 +34,6 @@
           });
 
       }); 
-
 
       it('should not except bad object', function() {
       	
@@ -81,6 +78,15 @@
 
       });
 
+      it('should show warn when deleting not existing object', function() {
+          
+          expect(Storage.getAll()).toEqual({});
+
+          expect(Storage.remove('key')).toBeFalsy();
+
+      });
+
+
       it('should remove all object', function() {
 
       		Storage.add('key', obj);
@@ -93,10 +99,7 @@
 
       		expect(Storage.getAll()).toEqual({});
 
-
       });
-
-
 
 	});
 
