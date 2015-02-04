@@ -89,6 +89,18 @@ define('Storage',[], function(){
 
 		},
 
+
+		/**
+		 * Alias to add
+		 * @param {string} key    
+		 * @param {} object
+		 */
+		set: function(key, object){
+
+			setObject(key, object);
+
+		},
+
 		/**
 		 * Get object
 		 * @param  {string} key 
