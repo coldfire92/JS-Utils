@@ -86,6 +86,14 @@
       });
 
 
+      it('should show that try to set null object', function() {
+          
+          Storage.add('key', null);
+
+          expect(Storage.getAll()).toEqual({});
+
+      });
+
       it('should remove all object', function() {
 
       		Storage.add('key', obj);

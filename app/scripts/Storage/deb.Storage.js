@@ -9,6 +9,8 @@ DEBUGGER.addMethod('setObjectTest', function(Vars){
 
 	'use strict';
 
+	// check objects
+
 	if(typeof Vars.objects[Vars.key] !== 'undefined'){
 
 		this.print(Vars.moduleNameCall, 'Try to set \''+Vars.key+'\' object which is previous defined','warn');
@@ -19,6 +21,13 @@ DEBUGGER.addMethod('setObjectTest', function(Vars){
 		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is not defined','error');
 		return false;
 	}
+
+	if(Vars.object === null){
+		this.print(Vars.moduleNameCall, '\''+Vars.key+'\' is empty object (null)','warn');
+		return false;
+	}
+
+	// check key
 
 	var isString =  Vars.key instanceof String || typeof Vars.key === "string";
 
