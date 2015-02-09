@@ -73,14 +73,14 @@ define('Rwd',['Hooks'], function (Hooks) {
 		 	return Config;
 
 		 }
-
+		 
 
 		function getIsScreen() {
 
 			var self = this;
 			
 			DEBUGGER.run('isRwdModuleInit', {
-				isInit: self.isInit,
+				isInit: isInit,
 				property: 'isScreen'
 			},'RWD')
 
@@ -93,7 +93,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 			var self = this;
 			
 			DEBUGGER.run('isRwdModuleInit', {
-				isInit: self.isInit,
+				isInit: isInit,
 				property: 'isTablet'
 			},'RWD');
 
@@ -106,7 +106,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 			var self = this;
 			
 			DEBUGGER.run('isRwdModuleInit', {
-				isInit: self.isInit,
+				isInit: isInit,
 				property: 'isMobile'
 			},'RWD');
 
@@ -230,13 +230,13 @@ define('Rwd',['Hooks'], function (Hooks) {
 			initTabletView();
 			initScreenView();	
 
-			this.isInit = true;
+			isInit = true;
 
 		}
 
 		function destroy(){
 			
-			this.isInit = false;
+			isInit = false;
 			isMobile = false;
 			isTablet = false;
 		   	isScreen = true;
