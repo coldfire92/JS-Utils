@@ -524,6 +524,18 @@
 
 			});
 
+			it("should show when want to get isTablet but before not init module", function() {
+
+				expect(RwdModule.isTablet()).toBe(false);
+
+			});
+
+			it("should show when want to get isMobile but before not init module", function() {
+
+				expect(RwdModule.isMobile()).toBe(false);
+
+			});
+
 
 		});
 
