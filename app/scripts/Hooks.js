@@ -1,4 +1,4 @@
-/* global define */
+/* global define, DEBUGGER */
 define('Hooks', [], function () {
 
 	'use strict';
@@ -51,11 +51,16 @@ define('Hooks', [], function () {
 		 * that the first argument must always be the action.
 		 */
 		function doAction( /* action, arg1, arg2, ... */ ) {
+			
 			var args = Array.prototype.slice.call( arguments );
 			var action = args.shift();
 
 			if( typeof action === 'string' ) {
+
+				DEBUGGER.run('info', 'Run ' + action+ ' action', 'Hooks');
+
 				_runHook( 'actions', action, args );
+
 			}
 
 			return MethodsAvailable;
