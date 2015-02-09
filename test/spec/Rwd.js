@@ -1,3 +1,4 @@
+
 /*global describe, it, expect, beforeEach, beforeAfter, _ */
 (function(){
 	'use strict';
@@ -95,7 +96,6 @@
 		 	 return windowMediaMatch
 
 	 	 };
-
 
 
 	 	/*=================================
@@ -200,6 +200,8 @@
 
          		RwdModule = Rwd;
 
+         		RwdModule.destroy(); // remove events etc.
+         		
          		modifiedVar = '';
 
          		done();
@@ -346,7 +348,8 @@
 			 it("properly get isMobile() method", function() {
 			 	
 			 	modifiedVar= '';
-			 	RwdModule.init(mediaMatch);	
+			 	RwdModule.init(mediaMatch);
+			 			
 			 	expect(RwdModule.isMobile()).toBeTruthy();
 
 			 });
@@ -512,6 +515,17 @@
 			 });
 			
 	 	 });
+
+		describe("Init", function(){
+
+			it("should show when want to get isScreen but before not init module", function() {
+
+				expect(RwdModule.isScreen()).toBe(true);
+
+			});
+
+
+		});
 
 	 });
 

@@ -3,13 +3,14 @@
 define('Rwd',['Hooks'], function (Hooks) {
 
 	'use strict';
-	
 
 	var Rwd = function(){
 
 		/**
 		 * Maintain a reference to the object scope so our public methods never get confusing.
 		 */
+		
+		 var isInit = false; // are module init (events add to widndow.matchMedia)
 
 		 var Config = {
 			 	mobileWidth : {
@@ -25,9 +26,9 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		 };
 
-		 var isMobile = true,
+		 var isMobile = false,
 			 isTablet = false,
-		   	 isScreen = false;
+		   	 isScreen = true;
 
 		 var MatchMediaObject; // dependency injection
 
@@ -68,30 +69,50 @@ define('Rwd',['Hooks'], function (Hooks) {
 		 }
 
 		function getConfig(){
-		 	
+
 		 	return Config;
 
 		 }
 
 
 		function getIsScreen() {
-		
+
+			var self = this;
+			
+			DEBUGGER.run('isRwdModuleInit', {
+				isInit: self.isInit,
+				property: 'isScreen'
+			},'Rwd')
+
 			return isScreen;
 
 		}
 
 		function getIsTablet() {
+
+			var self = this;
 			
+			DEBUGGER.run('isRwdInit', {
+				isInit: self.isInit,
+				property: 'isTablet'
+			});
+
 			return isTablet;
 
 		}
 
 		function getIsMobile() {
-		
+
+			var self = this;
+			
+			DEBUGGER.run('isRwdInit', {
+				isInit: self.isInit,
+				property: 'isMobile'
+			});
+
 			return isMobile;
 
 		}
-
 
 
 		// run when current view
@@ -181,7 +202,6 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 			matchMediaObjects.mobileView.addListener(function(mq){
 
-
 				if(mq.matches){ mobile(false);}
 
 			});
@@ -204,15 +224,24 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		function init(matchMedia){
 
-
 			MatchMediaObject = matchMedia || function(mediaQuery){return window.matchMedia(mediaQuery);};
 			
-
 			initMobileView();
 			initTabletView();
 			initScreenView();	
 
+			this.isInit = true;
+
 		}
+
+		function destroy(){
+			
+			this.isInit = false;
+			isMobile = false;
+			isTablet = false;
+		   	isScreen = true;
+
+		}  
 
 
 		function addHook(type, fn, onInit){
@@ -226,7 +255,7 @@ define('Rwd',['Hooks'], function (Hooks) {
 				return false;
 			}
 
-			if(typeof fn != "function"){
+			if(typeof fn !== 'function') {
 
 				DEBUGGER.run('error', 'Youd dont proper funciton to addHook method','RWD');
 
@@ -240,13 +269,15 @@ define('Rwd',['Hooks'], function (Hooks) {
 
 		// return all of the publicly available methods
 		return {
-			isTablet: getIsTablet,
-			isMobile: getIsMobile, 
-			isScreen: getIsScreen,
-			addConfig: addConfig,
-			getConfig: getConfig,
-			addHook: addHook,
-			init: init
+			isInit : false,
+			isTablet: getIsTablet.bind(this),
+			isMobile: getIsMobile.bind(this), 
+			isScreen: getIsScreen.bind(this),
+			addConfig: addConfig.bind(this),
+			getConfig: getConfig.bind(this),
+			destroy : destroy.bind(this),
+			addHook: addHook.bind(this),
+			init: init.bind(this),
 		};
 
 	};

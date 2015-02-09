@@ -90,8 +90,25 @@ DEBUGGER.addMethod('checkConfigObj', function(Vars){
 
 		}
 
-
 		return true;
 	
 
-},['Config']);		
+},['Config']);	
+
+
+DEBUGGER.addMethod('isRwdModuleInit', function(Vars){
+
+
+	if(Vars.isInit !== true){
+
+		this.print('RWD', 'Try to get ' + Vars.property+ ' but Rwd module not init', 'warn');
+		return false;
+	}
+
+	return true;
+
+},['isInit','property']);
+
+
+
+
