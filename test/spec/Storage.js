@@ -13,7 +13,6 @@
       	
 	describe('Storage', function(){
 
-
       it('should load the AMD Storage module', function(done) {
           
           
