@@ -8,17 +8,7 @@ define('Hooks', [], function () {
 	 * that, lowest priority hooks are fired first.
 	 */
 	var EventManager = function() {
-		/**
-		 * Maintain a reference to the object scope so our public methods never get confusing.
-		 */
-		var MethodsAvailable = {
-			removeFilter : removeFilter,
-			applyFilters : applyFilters,
-			addFilter : addFilter,
-			removeAction : removeAction,
-			doAction : doAction,
-			addAction : addAction
-		};
+		
 
 		/**
 		 * Contains the hooks that get registered with this EventManager. The array for storage utilizes a "flat"
@@ -28,6 +18,17 @@ define('Hooks', [], function () {
 			actions : {},
 			filters : {}
 		};
+
+
+		/**
+		 * Return object with all added actions and filter (for debugging) 
+		 * @return {object} 
+		 */
+		function getAll(){
+
+			return STORAGE;
+
+		}
 
 		/**
 		 * Adds an action to the event manager.
@@ -240,6 +241,20 @@ define('Hooks', [], function () {
 
 			return ( type === 'filters' ) ? args[ 0 ] : true;
 		}
+
+
+		/**
+		 * Maintain a reference to the object scope so our public methods never get confusing.
+		 */
+		var MethodsAvailable = {
+			removeFilter : removeFilter,
+			applyFilters : applyFilters,
+			addFilter : addFilter,
+			removeAction : removeAction,
+			doAction : doAction,
+			addAction : addAction,
+			getAll : getAll
+		};
 
 		// return all of the publicly available methods
 		return MethodsAvailable;

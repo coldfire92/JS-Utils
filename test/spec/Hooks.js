@@ -43,32 +43,27 @@
       =            LOAD MODULE            =
       ===================================*/
       
-    
-         
-      it("should load the AMD Hooks module", function(done) {
-          
-          
+      beforeEach(function(done){
+
           require(['Hooks'], function (Hooks) {
            
              HooksModule = Hooks;
-             expect(HooksModule.removeFilter).toBeDefined();
 
-
-               beforeEach(function() {
-        
-                 HooksModule.removeFilter('test.filter');
-                 HooksModule.removeAction('test.action');  
-                 window.actionValue = '';
-                
-               });
-
-
-
-
+             HooksModule.removeFilter('test.filter');
+             HooksModule.removeAction('test.action');  
+             window.actionValue = '';
+              
              done();
 
           });
 
+      });
+    
+         
+      it("should load the AMD Hooks module", function(done) {
+          
+          expect(HooksModule.removeFilter).toBeDefined();
+        
       }); 
 
 
@@ -286,6 +281,18 @@
        /*=============================
        =            CACHE            =
        =============================*/
+
+       it("should return all hooks", function() {
+         
+          HooksModule.addAction( 'test.action', action_a );
+
+          HooksModule.doAction( 'test.action' ); 
+
+          console.log(HooksModule.getAll());
+          
+          expect(window.actionValue).toBe("a");
+
+       });
        
       it("require should cache Hooks ", function(done) {
           
