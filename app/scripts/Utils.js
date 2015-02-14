@@ -25,6 +25,8 @@ define('Utils', [], function () {
 		 */
 		redirect : function(url){
 
+			if(url === window.location.href) this.reload(); // reload if that same page
+
 			window.location.href = url;
 
 		}
