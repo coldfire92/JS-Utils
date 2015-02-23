@@ -98,6 +98,7 @@ DEBUGGER.addMethod('checkConfigObj', function(Vars){
 
 DEBUGGER.addMethod('isRwdModuleInit', function(Vars){
 
+	'use strict';
 
 	if(Vars.isInit !== true){
 
