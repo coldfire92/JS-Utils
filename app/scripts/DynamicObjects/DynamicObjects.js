@@ -24,20 +24,12 @@ define('DynamicObject',[], function(){
 	 	     */
 			add : function(key, obj){
 
-				if(DEBUGGER.run('setObjectTest', {
-						objects: this.store,
-						key: key,
-						object: obj
-					}, 'DynamicObjects')){
-				     
-				     this.keyIndex[key] = this.keys.length;
-				     this.keys.push(key);
-				     this.store[key] = obj;
-				     return true;
-			    } 
-
-			    return false;
-
+			
+			     this.keyIndex[key] = this.keys.length;
+			     this.keys.push(key);
+			     this.store[key] = obj;
+			     return true;
+		    
 			},
 
 			/**
