@@ -59,13 +59,6 @@
 
       });
     
-         
-      it("should load the AMD Hooks module", function(done) {
-          
-          expect(HooksModule.removeFilter).toBeDefined();
-        
-      }); 
-
 
       it("can access to applyFilters", function() {
 
