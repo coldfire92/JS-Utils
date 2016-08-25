@@ -1,5 +1,5 @@
 {
-  "name": "js-utils",
+  "name": "mp-js-utils",
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
     "grunt": "^0.4.5",
